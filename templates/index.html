@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title> feeder </title>
+    </head>
+
+    <body>
+        <form method="POST"> 
+            <fieldset class="flashes">
+                <legend> feeder </legend>
+                {% for message in get_flashed_messages() %}
+                    {{message}}<br>
+                {% endfor %}
+                <br>
+                <button name="request" class="butt" value="feed"> 
+                    feed </button>
+                <button name="request" class="butt" value="refresh"> 
+                    refresh </button>
+                <div class="feed"> 
+                    <img src="/video_feed?g={{rand_hash}}" >
+                </div>
+            </fieldset>
+        </form>
+    </body>
+
+    <style>
+        .butt { 
+            display: block;
+            width: 50%;
+            border: none;
+            background-color: #7AC5CD;
+            color: white;
+            float: left;
+            padding: 5%;
+            font-family: Monaco, monospace;
+            font-size: 36px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .butt:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        @media only screen and (min-width: 0px) {
+            body {
+                padding-top: 20px;
+                text-align: center;
+                font-family: Monaco, monospace;
+                font-size: 16px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            feed {
+                margin-left: auto; 
+                margin-right: auto;
+                width: 50%;
+                height: 50%;
+            }
+            img { width: 100% }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            body {
+                padding-top: 20px;
+                text-align: center;
+                font-family: Monaco, monospace;
+                font-size: 24px;
+                width: 100%;
+            }
+            feed {
+                width: 100%;
+                height: 100%;
+            }
+            img { width: 100% }
+        }
+    </style>
+</html>

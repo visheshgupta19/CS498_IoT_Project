@@ -1,0 +1,24 @@
+for feeder:
+
+    nohup sudo python3 controller.py &
+
+note: if the job stops, run:
+
+    sudo python3 controller.py
+
+then enter password, then end, and then try again
+
+and to quit:
+
+    ps -ef | grep python
+    sudo kill -9 PID
+
+note: there is a script somewhere on the pi that restarts the controller
+whenever there is a power outage. it is not reliable, the version it runs
+is likely to break. when possible, restart or run the controller manually.
+the restart script is only meant as a backup if nobody is home to restart
+the pi properly.
+
+to see this restart script:
+
+    sudo vi /etc/rc.local
